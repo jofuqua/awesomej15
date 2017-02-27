@@ -17,9 +17,9 @@ body{
 /*Structure Layout*/
 
 #pageWrap{
-padding: 6px;
-width: 500px;
-margin: 50px auto;
+padding: 5px;
+width: 960px;
+margin: 20px auto;
 }
 
 #header {
@@ -33,7 +33,7 @@ margin: 50px auto;
 }
 
 #middle{
-	width:500px;
+	width:294px;
     float:left;
     padding:5px 15px;
     margin:0px 5px 5px 5px;
@@ -41,17 +41,102 @@ margin: 50px auto;
 
 }
 #sidebar {
-	width: 500px;
+	width: 270px;
 	padding: 5px 15px;
 	float:left;
 
 }
 footer{
 	  clear:both;
-	  padding: 5px 15px;
+	  padding: 0px 15px;
 
 
 }
+
+/**********************
+*********************
+MEDIA QURIES 
+*******************/
+/*For 980px or less*/
+
+@media screen  and (max-width: 980px){
+
+		#pagewrap{
+			width: 94%;
+		}
+		#content {
+			padding: 1% 41%;
+
+		}
+         #middle{
+         	width: 41%;
+         	padding: 1% 4%;
+         	margin: 0px 0px 5px 5px;
+         	float:right;
+         }
+         header, footer {
+
+         }
+
+
+
+     }
+
+     /* for 600px or less*/
+     @media screen and (max-width: 600px){
+
+
+     	#content {
+     		width: auto;
+     		float: none;
+     	}
+          #middle{
+             width: auto;
+     		 float: none;
+     		 margin: left 0%;
+          }
+    	#sidebar{
+    	     width: auto;
+     		 float: none; 
+     }
+
+     }
+
+
+     /* for 480px or less*/
+     @media screen and (max-width: 480px){
+     			#content{
+     				height: auto;
+
+     			}
+     			h1{
+     				font-size: 2em;
+
+     			}
+
+     			#sidebar{
+     				display: none;
+
+
+     			}
+}
+     			#content{
+     				background: #f8f8f8;
+     			}
+     			#sidebar{
+     				background: #f0efef;
+
+     			}
+     			header, #content, #middle ,#sidebar{
+     				margin-bottom:  5px;
+
+     			}
+     			#pagewrap, header, #content, #middle, #sidebar, footer{
+     				border: solid 1px #ccc;
+     			}
+
+
+     
 </style>
 
 
