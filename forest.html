@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Forrest Adventure</title>
+</head>
+<body>
+
+<img src =""  width= "300px"  height = "267px">
+
+
+<p id = "output"  > </p>
+
+<input id = "input" type = "text" placeholder="Enter your action...">
+<button> Enter </button>
+
+ 
+
+
+<script>
+
+var map =[];
+
+map[0] = " An old stone keep";
+map[1] = "A deep well";
+map[2] = " A sunny glade";
+map[3] =" A sleeping dragon";
+map[4] =" A narrow pathway";
+map[5] = " An ancient gate";
+map[6] = " The edge of a river"
+map[7] = "An lonely wooden bench";
+map[8] = "An isolated cottage. Faint music comes from inside";
+
+var actionsIknow = ["north", "east", "south", "west"];
+
+
+var imgs = [];
+imgs[0] = "images/keep.png";
+imgs[1] = "images/well.png";
+imgs[2] = "images/glade.png";
+imgs[3] = "images/dragon.png";
+imgs[4] = "images/path.png";
+imgs[5] = "images/gate.png";
+imgs[6] = "images/river.png";
+imgs[7] = "images/bench.png";
+imgs[8] = "images/cottage.png";
+
+
+
+
+
+//Default starting location
+
+
+var mapLocation = 4;
+var playerInput = "";
+var gameMessage = "";
+var action = "";
+
+
+var output= document.querySelector("#output");
+output.innerHTML= map[mapLocation];
+var input = document.querySelector("#input");
+
+var button = document.querySelector("button");
+button.style.cursor= "pointer";
+
+
+
+button.addEventListener("click", clickHandler, false);
+var image = document.querySelector("img");
+
+
+
+
+//function for game
+
+render();
+
+
+function clickHandler(){
+
+playGame();
+
+}
+
+function playGame(){
+
+	playerInput = input.value;
+	playerInput = playerInput.toLowerCase();
+
+	gameMessage = " ";
+	action = " ";
+
+	for(i = 0; i < actionsIknow.length; i++){
+
+		if(playerInput.indexOf(actionsIknow[i] !== -1)){
+			action = playerInput;
+			console.log("players action: " + action);
+			break;
+		}
+
+	}
+
+	switch(action)
+	{
+
+		case "north":
+		mapLocation -= 3;
+		break;
+
+		case "east":
+		mapLocation += 1;
+		break;
+
+
+		case "south":
+		mapLocation += 3;
+		break;
+
+		case "west":
+		mapLocation -= 1;
+		break;
+
+		default:
+		gameMessage = "I do not know that !";
+
+	}
+
+	render();
+
+	}
+
+
+	function render(){
+		// renders image
+		output.innerHTML = map[mapLocation];
+		image.src = imgs[mapLocation];
+
+		//display Game Message
+		output.innerHTML += "<br> <em>" + gameMessage + " </em";
+
+
+	}
+
+</script>
+
+</body>
+</html>
